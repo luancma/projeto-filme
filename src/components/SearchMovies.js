@@ -1,46 +1,57 @@
 import React, {Component} from 'react';
 
 class SearchMovies extends Component{
-
     state = {
         query: [],
+        movies: []
     }
 
-    updateQuery = (query) => {
+    updateMovie = (event) => {
+        let value = event.target.value
         this.setState(() => ({
-            query : query
+            query:value
         }))
+        console.log(value)
+        this.findMovie(value)
+    }
 
-        if(this.state.query !== ''){
-            this.props.changeMovie(this.state.query)
-            console.log(this.state.query)
-        }  
+    findMovie = (value) => {
+        if(value.length !== 0 ) {
+            fetch(`https://api.themoviedb.org/3/search/movie?api_key=baa0044b3ccf7fd3d2cf05a750f8e4c1&language=en-US&query=${value}&page=1&include_adult=false`)
+            .then(res => res.json())
+            .then((result) => {
+                this.setState({
+                movies: result.results
+                });
+            })
+        }else{
+            this.setState({
+                movies: [],
+                query: '',
+            })
+        }
     }
     render(){
         return(
+        <div>
             <div> 
-                <div>
-                <input
-                    type='text'
-                    placeholder='Digite o nome do filme'
+                <input 
                     value={this.state.query}
-                    onChange={(event) => this.updateQuery(event.target.value)}
+                    onChange={this.updateMovie}
                 />
-                </div>
-
-                <div>
-                    <ol>
-                    {this.props.searchMovie.map((movie) => (
-                        <li key={movie.id} className='contact-list-item'>
-                        <div className='contact-details'>
-                            <p>{movie.id}</p>
-                        </div>
-                        </li>
-                    ))}
-                    </ol>
-                </div>
-
-            </div> 
+            </div>
+            <div>
+                <ul>
+                {this.state.query.length > 0 &&
+                    this.state.movies.map((movie) => (
+                    <li key={movie.key}> 
+                    {movie.title}
+                    </li>
+                    )
+                )}
+                </ul>
+            </div>
+        </div>
         )
     }
 }
