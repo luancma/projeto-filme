@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
+import 'antd/dist/antd.css';
+import { Input,  List, Card, Avatar, Icon } from 'antd';
 
+
+const Search = Input.Search;
 class SearchMovies extends Component{
     state = {
         query: [],
@@ -9,7 +13,7 @@ class SearchMovies extends Component{
     updateMovie = (event) => {
         let value = event.target.value
         this.setState(() => ({
-            query:value
+           query:value
         }))
         console.log(value)
         this.findMovie(value)
@@ -21,7 +25,7 @@ class SearchMovies extends Component{
             .then(res => res.json())
             .then((result) => {
                 this.setState({
-                movies: result.results
+                  movies: result.results
                 });
             })
         }else{
@@ -32,26 +36,50 @@ class SearchMovies extends Component{
         }
     }
     render(){
+
+        const IconText = ({ type, text }) => (
+            <span>
+                <Icon type={type} style={{ marginRight: 8 }} />
+                {text}
+            </span>
+        );
         return(
-        <div>
-            <div> 
-                <input 
-                    value={this.state.query}
-                    onChange={this.updateMovie}
-                />
+            <div style={{padding: '10px'}}>
+                <div> 
+                    <Search
+                        placeholder="input search text"
+                        value={this.state.query}
+                        onChange={this.updateMovie}
+                        style={{ width: 'auto' }}
+                    />
+                </div>
+
+                <div>
+                    <List
+                        itemLayout="vertical"
+                        size="medium">
+
+                    {this.state.query.length > 0 && 
+                        this.state.movies.map((movie) => (
+                            <List.Item 
+                                key={movie.id}
+                                actions={[
+                                    <IconText type="star-o" text={movie.vote_average} />, 
+                                    <IconText type="like-o" text={movie.vote_count} />,
+                                    <IconText type="calendar" text={movie.release_date} />
+                                ]}
+                                extra={<img width={180} alt="logo" src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}/>}
+                            >
+                            <List.Item.Meta
+                                title={movie.title}
+                            />
+                                {movie.overview}
+                            </List.Item>
+                        ))    
+                    }
+                    </List>
+                </div>
             </div>
-            <div>
-                <ul>
-                {this.state.query.length > 0 &&
-                    this.state.movies.map((movie) => (
-                    <li key={movie.key}> 
-                    {movie.title}
-                    </li>
-                    )
-                )}
-                </ul>
-            </div>
-        </div>
         )
     }
 }

@@ -4,6 +4,7 @@ import PopularMovies from './components/PopularMovies';
 import SearchMovies from './components/SearchMovies';
 import { Route } from "react-router-dom";
 
+
 class App extends Component {
 
   state = {
@@ -27,7 +28,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
       <Route exact path="/" render={() => (
         <PopularMovies 
           movies={this.state.movies}
