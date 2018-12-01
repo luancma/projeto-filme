@@ -19,7 +19,7 @@ const PopularMovies = props =>{
               <Button icon="search" style={{ marginTop: '30px', marginLeft:'80%' }}>Search</Button>
          </div>
         <div style={{padding:'10px'}}>
-            <h2 style={{textAlign: 'center', paddingTop: '20px', paddingBottom: '40px'}}> Filmes mais buscados </h2>
+            <h2 style={{textAlign: 'center', paddingTop: '20px', paddingBottom: '40px'}}> Most Searched Movies </h2>
             <Row gutter={16} type="flex" justify="space-around" align="middle">
             {props.movies.map((movie) => (
                 <Col ml={{span: 8}} key={movie.id}>
