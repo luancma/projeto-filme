@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, List, Icon} from 'antd';
+import { Card, Row, Avatar, Icon, Col} from 'antd';
 
 
 const { Meta } = Card;
@@ -14,22 +14,22 @@ const { Meta } = Card;
 const PopularMovies = props =>{
     return(  
         <div>
-           <h1>Popular Movies</h1>
-            <p>Get a list of the current popular movies on TMDb. This list updates daily.</p>
-            <Row gutter={8}>
+            <Row type="flex" justify="space-around" align="middle">
             {props.movies.map((movie) => (
-                <Card
-                hoverable
-                style={{ width: 240 }}
-                cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                >
-                <Meta
-                title="Europe Street beat"
-                description="www.instagram.com"
-                ></Meta>    
-                </Card>
+                <Col ml={{span: 8}} key={movie.id}>
+                    <Card
+                        hoverable
+                        style={{ width: 240 }}
+                        cover={<img alt="example" src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`} />}
+                    >
+                        <Meta
+                            title={movie.title}
+                        />
+                    </Card>
+                </Col>
             ))}
             </Row>
+        </div>
     )
 }
 export default PopularMovies;

@@ -27,10 +27,10 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <div>
       <Route exact path="/" render={() => (
         <PopularMovies 
-          movies={this.state.movies}
+          movies={this.state.movies.slice(0,4)}
         />
       )}
       />
