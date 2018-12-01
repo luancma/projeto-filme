@@ -3,7 +3,7 @@ import './App.css';
 import PopularMovies from './components/PopularMovies';
 import SearchMovies from './components/SearchMovies';
 import { Route } from "react-router-dom";
-
+import { Button} from 'antd';
 
 class App extends Component {
 
@@ -27,10 +27,11 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
+      <div style={{ width: '100%' }}>
+    
       <Route exact path="/" render={() => (
         <PopularMovies 
-          movies={this.state.movies.slice(0,4)}
+          movies={this.state.movies.slice(0,6)}
         />
       )}
       />
@@ -39,7 +40,6 @@ class App extends Component {
         <SearchMovies/>
       )}
       />
-
       </div>
     );
   }
