@@ -1,13 +1,11 @@
 import React,{Component} from 'react'
 
-class MovieDetails extends Component {
-    render(){
-        
-        return(
+const MovieDetails = props => {
+    {console.log(props.movie)}
+    return(
         <div>
-            
+           
         </div>
-        )
-    }
+    )
 }
 export default MovieDetails

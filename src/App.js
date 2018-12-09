@@ -27,7 +27,7 @@ class App extends Component {
       }
     )
   }
-  
+
   render() {
     return (
       <div style={{ width: '100%' }}>
@@ -46,9 +46,9 @@ class App extends Component {
         )}
         />
 
-        <Route exact path="/details" render={() => (
+        <Route exact path="/details/:id" render={(props) => (
           <MovieDetails
-            movie={movies}
+            movie={props.movie}
             page ={this.state.page='Movie Details'}
           />
         )}

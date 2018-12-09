@@ -7,11 +7,11 @@ const { Meta } = Card;
 
 
 const Movie = props =>{
-    {console.log(props.movie.id)}
+    {console.log(props.movie)}
     
     return(
             <Col ml={{span: 8}} key={props.movie.id}>
-                <Link to={'/details'} movie={props.movie} >
+                <Link to={`/details/${props.movie.id}`} movie={props.movie}>
                     <Card
                         hoverable
                         style={{ width: 180 }}  
@@ -24,4 +24,4 @@ const Movie = props =>{
             </Col>
     )
 }
-export default Movie                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+export default Movie
