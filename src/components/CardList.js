@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import { Card, Row, Button, Col,Icon} from 'antd';
-import {Link} from 'react-router-dom'
 import Movie from './Movie';
 
 class CardList extends Component{
