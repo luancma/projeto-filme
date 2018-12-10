@@ -2,24 +2,34 @@ import React,{Component} from 'react'
 
 class MovieDetails extends Component {
     state = {
-        details: [],
+        movies: [],
+        details: []
     }
-    getMovieDetails = () => {
-        fetch(`https://api.themoviedb.org/3/movie/${this.props.id}?api_key=baa0044b3ccf7fd3d2cf05a750f8e4c1&language=en-US`)
-         .then(res => res.json())
-         .then(
-             (result) => {
-                 this.setState({
-                     details: result.results
-                 });
-             }
-         )
-     }
+
+    componentDidMount() {
+        this.getDetails();
+    }
+      
+      getDetails = () => {
+        const id = this.props.id
+        console.log(`https://api.themoviedb.org/3/movie/${id}?api_key=baa0044b3ccf7fd3d2cf05a750f8e4c1&language=en-US`)
+        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=baa0044b3ccf7fd3d2cf05a750f8e4c1&language=en-US`)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              details: result
+            });
+          }
+        )
+      }
     
     render(){
         return(
-            <div>  
-                <p> Título do filme é : {this.state.details.title} </p>
+            <div>
+                <p>{this.state.details.title}</p>
+                {console.log(this.state.details.title)}
+                {console.log(this.state.details.genres.map((gen) => gen.length))}
             </div>
         )
     }

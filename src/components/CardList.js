@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Card, Row, Button, Col,Icon} from 'antd';
+import { Row, Button, Col} from 'antd';
 import Movie from './Movie';
 
 class CardList extends Component{

@@ -7,8 +7,6 @@ const { Meta } = Card;
 
 
 const Movie = props =>{
-    {console.log(props.movie)}
-    
     return(
             <Col ml={{span: 8}} key={props.movie.id}>
                 <Link to={`/details/${props.movie.id}`} movie={props.movie}>

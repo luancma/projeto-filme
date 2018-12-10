@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import 'antd/dist/antd.css';
-import { Input,  List, Icon, Button, Row, Col} from 'antd';
-import {Link} from 'react-router-dom'
+import { Input,  List, Icon, Row, Col} from 'antd';
 
 
 const Search = Input.Search;

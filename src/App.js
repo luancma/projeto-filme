@@ -31,7 +31,7 @@ class App extends Component {
       <div style={{ width: '100%' }}>
         <Route exact path="/" render={() => (
           <CardList 
-            page={this.state.page='Home page'}
+            page={this.setState.page='Home page'}
             movies={this.state.movies}
           />
         )}
@@ -39,7 +39,7 @@ class App extends Component {
 
         <Route exact path="/search" render={() => (
           <SearchMovies
-            page ={this.state.page='Search movie'}
+            page ={this.setState.page='Search movie'}
           />
         )}
         />
@@ -47,7 +47,7 @@ class App extends Component {
         <Route exact path="/details/:id" render={(props) => (
           <MovieDetails
             id={props.match.params.id}
-            page ={this.state.page='Movie Details'}
+
           />
         )}
         />
