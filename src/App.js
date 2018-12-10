@@ -5,8 +5,6 @@ import SearchMovies from './components/SearchMovies';
 import { Route } from "react-router-dom";
 import MovieDetails from './components/MovieDetails';
 
-
-
 class App extends Component {
   state = {
     movies: [],
@@ -48,7 +46,7 @@ class App extends Component {
 
         <Route exact path="/details/:id" render={(props) => (
           <MovieDetails
-            movie={props.movie}
+            id={props.match.params.id}
             page ={this.state.page='Movie Details'}
           />
         )}

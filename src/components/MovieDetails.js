@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 
 const MovieDetails = props => {
-    {console.log(props.movie)}
+    {console.log(props.id)}
     return(
         <div>
            
