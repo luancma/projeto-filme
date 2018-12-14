@@ -55,9 +55,10 @@ class SearchMovies extends Component{
                 </div>  
                 <Row type="flex" justify="center">
                     <Col>
-                        <Search
+                        <Search 
+                            className='searchInput'
                             placeholder="input search text"
-                            size="large"
+                            size="small"
                             value={this.state.query}
                             onChange={this.updateMovie}
                             style={{ width: '400px', marginTop: '40px' }}

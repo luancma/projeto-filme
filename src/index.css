@@ -76,6 +76,11 @@ code {
 }
 
 @media (max-width: 575px){
+
+  .searchInput{
+    size: small;
+  }
+
   .movieInfo{
     padding: 0;
     margin-left: 50%;
