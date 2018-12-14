@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import './App.css';
 import CardList from './components/CardList';
 import SearchMovies from './components/SearchMovies';
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import MovieDetails from './components/MovieDetails';
+import { Menu, Icon } from 'antd';
+
 
 class App extends Component {
   state = {
     movies: [],
-    page: ''
+    page: '',
+    current: 'home'
   }
 
   componentDidMount() {
@@ -26,10 +29,35 @@ class App extends Component {
     )
   }
 
+  handleClick = (e) => {
+    console.log('click ', e);
+    this.setState({
+      current: e.key,
+    });
+  }
+
   render() {
     return (
       <div style={{ width: '100%' }}>
-        <Route exact path="/" render={() => (
+      <Menu
+        onClick={this.handleClick}
+        selectedKeys={[this.state.current]}
+        mode="horizontal"
+      >
+        <Menu.Item key="home">
+        <Link to='/'>
+          <Icon type="home" />Home
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="search">
+          <Link to='/search'>
+            <Icon type="search" />Search Movie
+          </Link>
+        </Menu.Item>
+      </Menu>
+
+
+      <Route exact path="/" render={() => (
           <CardList 
             page={this.setState.page='Home page'}
             movies={this.state.movies}
@@ -47,6 +75,7 @@ class App extends Component {
         <Route exact path="/details/:id" render={(props) => (
           <MovieDetails
             id={props.match.params.id}
+            page={this.setState.page='Movie Details'}
 
           />
         )}

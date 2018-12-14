@@ -26,7 +26,7 @@ constructor(props) {
             <div>
                 <div className='topPopular' style={{width: '100%', height:'100px', backgroundColor: 'black'}}> 
                     <Row type="flex" justify="center">
-                        <Col span={4}>
+                        <Col>
                             <h1 style={{ color: 'white', marginTop: '20px' }}>{this.props.page} </h1>
                         </Col>
                     </Row>
@@ -36,7 +36,6 @@ constructor(props) {
 
                     {this.state.seeMore === false 
                     ?  
-                    
                     <div>
                         <Row gutter={16} type="flex" justify="space-around" align="middle">
                         {this.props.movies.slice(0,6).map((movie)=> (

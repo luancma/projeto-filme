@@ -12,3 +12,77 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.movieInfo {
+  padding: 40px;
+}
+
+.detailsList{
+  width: 200px;
+  margin-top: 10px;
+  margin: auto
+}
+.detailsList li {
+  list-style-type: none;
+}
+
+.studio{
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 80px;  
+  font-size: 1.2em;
+}
+
+.movieInfo h2 {
+  margin-top: 40px;
+  text-align: center;
+}
+.movieInfo h2, h4{
+  text-align: center
+}
+
+.movieInfo p{
+  margin-top: 40px;
+  font-weight: 400;
+  text-align: justify;
+}
+
+.movieInfoBot p{
+  text-align: center;
+}
+
+.imgLogo{
+  margin-left: 50%;
+  transform: translate( -50%)
+}
+
+@media (max-width: 768px){
+    .video{
+      width: 420px;
+      height: 315px;
+  }
+}
+
+@media (max-width: 576px){
+  .movieInfo{
+    padding: 0;
+    margin-left: 50%;
+    transform: translate(-50%)
+  }
+  .video{
+    width: 320px;
+    height: 215px;
+  }
+}
+
+@media (max-width: 575px){
+  .movieInfo{
+    padding: 0;
+    margin-left: 50%;
+    transform: translate(-50%)
+  }
+  .video{
+    width: 200px;
+    height: 215px;
+  }
+}

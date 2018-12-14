@@ -3,20 +3,14 @@ import { Card, Col} from 'antd';
 import {Link} from 'react-router-dom'
 
 
-const { Meta } = Card;  
-
 
 const Movie = props =>{
     return(
             <Col ml={{span: 8}} key={props.movie.id}>
-                <Link to={`/details/${props.movie.id}`} movie={props.movie}>
+                <Link to={`/details/${props.movie.id}`}>
                     <Card
-                        hoverable
                         style={{ width: 180 }}  
                         cover={<img alt="example" src={`https://image.tmdb.org/t/p/w185${props.movie.poster_path}`} />}>
-                        <Meta style={{ textAlign: 'center'}}
-                            title={props.movie.title}
-                        />
                     </Card>
                 </Link>
             </Col>

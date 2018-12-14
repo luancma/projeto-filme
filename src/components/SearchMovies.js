@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import 'antd/dist/antd.css';
-import { Input,  List, Icon, Row, Col} from 'antd';
+import { Input,  List, Icon, Row, Col, BackTop} from 'antd';
+import { Link } from "react-router-dom";
 
 
 const Search = Input.Search;
@@ -47,13 +48,13 @@ class SearchMovies extends Component{
             <div>
                 <div className='topPopular' style={{width: '100%', height:'100px', backgroundColor: 'black'}}> 
                     <Row type="flex" justify="center">
-                        <Col span={8} offset={2}>
+                        <Col>
                             <h1 style={{ color: 'white', marginTop: '20px' }}>{this.props.page} </h1>
                         </Col>
                     </Row>
                 </div>  
-                <Row>
-                    <Col span={2} offset={8}>
+                <Row type="flex" justify="center">
+                    <Col>
                         <Search
                             placeholder="input search text"
                             size="large"
@@ -68,10 +69,12 @@ class SearchMovies extends Component{
                     <Col span={16} offset={4}>
                         <List
                             itemLayout="vertical"
-                            size="medium">
-
+                            size="medium"
+                        >
+                        
                         {this.state.query.length > 0 && 
                             this.state.movies.map((movie) => (
+                                
                                 <List.Item 
                                     key={movie.id}
                                     actions={[
@@ -81,14 +84,17 @@ class SearchMovies extends Component{
                                     ]}
                                     extra={<img width={180} alt="logo" src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}/>}
                                 >
-                                <List.Item.Meta
-                                    title={movie.title}
-                                />
+                                <Link to={`/details/${movie.id}`}>
+                                <List.Item.Meta title={movie.title}/>
+                                </Link>
                                     {movie.overview}
                                 </List.Item>
                             ))    
                         }   
                         </List>
+                        <div>
+                            <BackTop />
+                        </div>
                     </Col>
                 </Row>
             </div>
