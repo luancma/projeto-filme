@@ -1,13 +1,12 @@
-## Project consuming a movie API of https://www.themoviedb.org 
+### Project consuming a movie API of https://www.themoviedb.org
 
-## App created with 'react-creat-app'
-
+### Created with 'create-react-app'
 ### Use git clone.
 ### 'npm install' in the project repository.
 ### 'npm start' to run the project.
 
 ## Online exemple: 
-https://site-api-filme.herokuapp.com/
+### https://site-api-filme.herokuapp.com/
 
 
 
