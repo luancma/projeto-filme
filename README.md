@@ -4,7 +4,7 @@ Created with 'create-react-app'
  * 'npm install' in the project repository. 
  * 'npm start' to run the project.
  
- **Online exemple:
+ **Online exemple:**;
  https://site-api-filme.herokuapp.com/
 
 
